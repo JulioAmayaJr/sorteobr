@@ -15,8 +15,20 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
+import { app } from '../../../firebase/data'
+import { getAuth,signInWithEmailAndPassword} from 'firebase/auth'
 
+const auth=getAuth(app)
 const Login = () => {
+  
+
+  const functAuthentication =async(e)=>{
+    e.preventDefault(); 
+    const email=e.target.email.value
+    const password=e.target.password.value
+    await signInWithEmailAndPassword(auth,email,password)
+    
+  }
   return (
     <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -25,14 +37,14 @@ const Login = () => {
             <CCardGroup>
               <CCard className="p-4">
                 <CCardBody>
-                  <CForm>
+                  <CForm onSubmit={functAuthentication}>
                     <h1>Login</h1>
                     <p className="text-body-secondary">Sign In to your account</p>
                     <CInputGroup className="mb-3">
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
-                      <CFormInput placeholder="Username" autoComplete="username" />
+                      <CFormInput placeholder="Email" type='email' autoComplete="email" name="email" id="email" />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
@@ -41,12 +53,14 @@ const Login = () => {
                       <CFormInput
                         type="password"
                         placeholder="Password"
+                        name="password"
+                        id="password"
                         autoComplete="current-password"
                       />
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4">
+                        <CButton type='submit' color="primary" className="px-4">
                           Login
                         </CButton>
                       </CCol>
