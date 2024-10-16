@@ -27,8 +27,12 @@ const Login = () => {
     const email=e.target.email.value
     const password=e.target.password.value
     await signInWithEmailAndPassword(auth,email,password)
+    const expirationTime = new Date(new Date().getTime() + 5 * 60 * 1000)
+    Cookies.set('sessionExpiry', expirationTime.toISOString(), { expires: expirationTime })
+
     
   }
+  
   return (
     <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
