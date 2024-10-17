@@ -41,13 +41,13 @@ const App = () => {
       if (user) {
         signOut(auth)
           .then(() => {
-            alert('Sesión cerrada por inactividad')
+            
           })
           .catch((error) => {
             console.error('Error al cerrar sesión:', error)
           })
       }
-    }, 60000) 
+    }, 15000000) 
 
     return () => clearTimeout(logoutTimer) 
   }, [user, dispatch])

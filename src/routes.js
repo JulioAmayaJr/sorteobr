@@ -8,8 +8,14 @@ const Typography = React.lazy(() => import('./views/theme/typography/Typography'
 
 //banner
 const Banner = React.lazy(() => import('./views/settings/banner/banner'))
-
-
+//About
+const About=React.lazy(()=>import('./views/settings/about/About'))
+//Contact
+const Contact=React.lazy(()=>import('./views/settings/contact/Contact'))
+//Name And Logo
+const Name=React.lazy(()=>import('./views/settings/nameAndLogo/NameAndLogo'))
+//Raffle
+const Raffle=React.lazy(()=>import('./views/settings/raffle/Raffle'))
 
 // Base
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
@@ -107,7 +113,13 @@ const routes = [
   { path: '/notifications/modals', name: 'Modals', element: Modals },
   { path: '/notifications/toasts', name: 'Toasts', element: Toasts },
   { path: '/widgets', name: 'Widgets', element: Widgets },
-  {path:'/settings/banner',name:'Banner',element: Banner}
+  {path:'/settings/banner',name:'Banner',element: Banner},
+  {path:'/settings/about',name:'About',element:About},
+  {path:'/settings/contact',name:'Contact',element:Contact},
+  {path:'/settings/name',name:'Name',element:Name},
+
+  {path:'/settings/raffle',name:'Raffle',element:Raffle},
+
 ]
 
 export default routes

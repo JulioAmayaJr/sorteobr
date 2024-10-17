@@ -40,28 +40,23 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: 'Términos y Condiciones',
-        to: '/configuracion/terminos-condiciones',
+        name: 'Sorteo',
+        to: '/settings/raffle',
       },
       {
         component: CNavItem,
         name: 'Nosotros',
-        to: '/configuracion/nosotros',
-      },
-      {
-        component: CNavItem,
-        name: 'Preguntas y Respuestas',
-        to: '/configuracion/preguntas-respuestas',
+        to: '/settings/about',
       },
       {
         component: CNavItem,
         name: 'Datos de Contacto',
-        to: '/configuracion/datos-contacto',
+        to: '/settings/contact',
       },
       {
         component: CNavItem,
         name: 'Nombre y Logo',
-        to: '/configuracion/nombre-logo',
+        to: '/settings/name',
       },
     ],
   },

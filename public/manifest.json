@@ -1,6 +1,6 @@
 {
-  "short_name": "Sorteos Br",
-  "name": "Sorteos BR",
+  "short_name": "CoreUI-React",
+  "name": "CoreUI-React sample",
   "icons": [
     {
       "src": "./assets/img/favicon.png",
