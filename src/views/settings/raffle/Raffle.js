@@ -22,7 +22,7 @@ import { db } from '../../../firebase/data';
 
 const RaffleCRUD = () => {
   const [raffles, setRaffles] = useState([]);
-  const [raffle, setRaffle] = useState({ drawDate: '', drawTime: '', title: '', description: '' });
+  const [raffle, setRaffle] = useState({ raffleDate: '', raffleTime: '', title: '', description: '' });
   const [editId, setEditId] = useState(null);
 
   useEffect(() => {
@@ -58,7 +58,7 @@ const RaffleCRUD = () => {
         await addDoc(collection(db, 'raffle'), raffle);
       }
       fetchRaffles();
-      setRaffle({ drawDate: '', drawTime: '', title: '', description: '' });
+      setRaffle({ raffleDate: '', raffleTime: '', title: '', description: '' });
       setEditId(null);
     } catch (error) {
       console.error('Error saving raffle:', error);
@@ -91,23 +91,23 @@ const RaffleCRUD = () => {
             <CForm onSubmit={handleSubmit}>
               <CRow>
                 <CCol md={3}>
-                  <CFormLabel htmlFor="drawDate">Draw Date</CFormLabel>
+                  <CFormLabel htmlFor="raffleDate">Raffle Date</CFormLabel>
                   <CFormInput
                     type="date"
-                    id="drawDate"
-                    name="drawDate"
-                    value={raffle.drawDate}
+                    id="raffleDate"
+                    name="raffleDate"
+                    value={raffle.raffleDate}
                     onChange={handleInputChange}
                     required
                   />
                 </CCol>
                 <CCol md={3}>
-                  <CFormLabel htmlFor="drawTime">Draw Time</CFormLabel>
+                  <CFormLabel htmlFor="raffleTime">Raffle Time</CFormLabel>
                   <CFormInput
                     type="time"
-                    id="drawTime"
-                    name="drawTime"
-                    value={raffle.drawTime}
+                    id="raffleTime"
+                    name="raffleTime"
+                    value={raffle.raffleTime}
                     onChange={handleInputChange}
                     required
                   />
@@ -157,8 +157,8 @@ const RaffleCRUD = () => {
               <CTableHead>
                 <CTableRow>
                   <CTableHeaderCell>ID</CTableHeaderCell>
-                  <CTableHeaderCell>Draw Date</CTableHeaderCell>
-                  <CTableHeaderCell>Draw Time</CTableHeaderCell>
+                  <CTableHeaderCell>Raffle Date</CTableHeaderCell>
+                  <CTableHeaderCell>Raffle Time</CTableHeaderCell>
                   <CTableHeaderCell>Title</CTableHeaderCell>
                   <CTableHeaderCell>Description</CTableHeaderCell>
                   <CTableHeaderCell>Actions</CTableHeaderCell>
@@ -168,8 +168,8 @@ const RaffleCRUD = () => {
                 {raffles.map((raffle) => (
                   <CTableRow key={raffle.id}>
                     <CTableDataCell>{raffle.id}</CTableDataCell>
-                    <CTableDataCell>{raffle.drawDate}</CTableDataCell>
-                    <CTableDataCell>{raffle.drawTime}</CTableDataCell>
+                    <CTableDataCell>{raffle.raffleDate}</CTableDataCell>
+                    <CTableDataCell>{raffle.raffleTime}</CTableDataCell>
                     <CTableDataCell>{raffle.title}</CTableDataCell>
                     <CTableDataCell>{raffle.description}</CTableDataCell>
                     <CTableDataCell>
